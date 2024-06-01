@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "your_project_name"
+version = "0.1.0"
+description = "A brief description of your project"
+authors = ["manikandan <manikandanvijayakumar92@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+# Add your project dependencies here
+numpy = "^1.21.0"
+requests = "^2.25.0"
+pytest = "^6.2.4"

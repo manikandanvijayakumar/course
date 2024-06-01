@@ -1,0 +1,16 @@
+# chmod -R 777 /workspace
+
+# Use absolute paths to remove ambiguity
+PROJECT_ROOT=$(pwd)/programs
+TEST_ROOT=$PROJECT_ROOT/coverage_prgm
+
+cd $PROJECT_ROOT
+pip install -U poetry
+poetry install --no-interaction --no-root
+
+export PYTHONPATH=include:$PYTHONPATH
+echo "Running pytest unit tests in $TEST_ROOT"
+poetry run pytest $TEST_ROOT --cov=include --junit-xml=test-results.xml --cov-report=xml:coverage.xml
+echo "pytest unit tests complete"
+echo "Test results written to $PROJECT_ROOT/test-results.xml"
+echo "Coverage results written to $PROJECT_ROOT/coverage.xml"
